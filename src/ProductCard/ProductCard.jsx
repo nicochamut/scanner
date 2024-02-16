@@ -21,7 +21,7 @@ const ProductCard = ({ prod }) => {
   useEffect(() => {
     inputRef.current.focus();
 
-    fetch(`http://localhost:4000/products/${result}`)
+    fetch(`http://http://192.168.100.31/4000/products/${result}`)
       .then((response) => response.json())
       .then((data) => setProduct(data))
       .catch((error) => console.error(error));
