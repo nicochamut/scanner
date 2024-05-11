@@ -5,43 +5,65 @@ import React, { useEffect, useState, useRef } from "react";
 import ProductDetails from "./ProductDetails";
 import BarCodeComponent from "../BarCodeComponent/BarCodeComponent";
 
+import axios from "axios";
+
 const ProductCard = ({ prod }) => {
   const [product, setProduct] = useState(null);
-
   const [inputValue, setInputValue] = useState("");
-  const [result, setResult] = useState("");
+  const [result, setResult] = useState({});
   const [productExist, setProductExist] = useState(false);
 
-  // Función para manejar el enfoque del input
-  const handleFocusInput = () => {
-    inputRef.current.focus(null);
-  };
-
   const inputRef = useRef();
+
+  // Enfocar el input cuando el componente se monta
   useEffect(() => {
     inputRef.current.focus();
+  }, []);
 
-    fetch(`http://http://192.168.100.31/4000/products/${result}`)
-      .then((response) => response.json())
-      .then((data) => setProduct(data))
-      .catch((error) => console.error(error));
-
-    document.addEventListener("click", handleFocusInput);
-
+  const setTimer = () => {
     setTimeout(() => {
       setProductExist(false);
-    }, 9500);
-  }, [result]);
+    }, 8500);
+  };
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
 
+  // const handleFormSubmit = (e) => {
+  //   e.preventDefault();
+  //   setResult(inputValue);
+  //   setInputValue(0);
+  //   setProductExist(true);
+  // };
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    setResult(inputValue);
-    setInputValue(0);
-    setProductExist(true);
+    // Configurar el objeto de datos para la solicitud POST
+    const requestData = {
+      cod_scanner: inputValue,
+    };
+    // Enviar la solicitud POST
+    axios
+      .post(
+        `https://us-central1-scannerapp-0.cloudfunctions.net/api/getProductById`,
+        requestData
+      )
+      .then((response) => {
+        setProduct(response.data);
+        // Si es necesario, puedes actualizar el estado o realizar otras acciones basadas en la respuesta
+      })
+      .then((d) => {
+        setProductExist(true);
+        setTimer();
+      })
+      .catch((error) => {
+        // Manejar cualquier error que ocurra durante la solicitud POST
+        console.error(error);
+      });
+
+    // Restablecer el estado de inputValue y setProductExist
+    setInputValue("");
   };
 
   return (
@@ -59,7 +81,6 @@ const ProductCard = ({ prod }) => {
           onChange={handleInputChange}
           placeholder="Ingresa un valor"
           ref={inputRef}
-          // style={{ opacity: 0 }}
         />
       </form>
     </ProductStyled>

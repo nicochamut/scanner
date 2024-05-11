@@ -2,18 +2,19 @@ import styled from "styled-components";
 import { DivBarcode } from "../BarCodeComponent/BarCodeComponent";
 
 const ProductDetails = ({ product }) => {
-  const { DESCRIART, Precio, COD_SCANER } = product;
+  console.log(product);
+  const { descriart, precio, cod_scanner } = product;
   return (
     <StyledDetails>
       <div className="codart">
         <h3>Cod artículo:</h3>
-        <h2>{COD_SCANER}</h2>
+        <h2>{cod_scanner}</h2>
       </div>
       <div className="nombre">
-        <h1>{DESCRIART}</h1>
+        <h1>{descriart}</h1>
       </div>
       <div className="precio">
-        <h1>${Precio}</h1>
+        <h1>${precio}</h1>
       </div>
     </StyledDetails>
   );

@@ -1,6 +1,4 @@
-
 import { createGlobalStyle } from "styled-components";
-
 
 export const GlobalStyles = createGlobalStyle`
   body {
@@ -13,7 +11,6 @@ export const GlobalStyles = createGlobalStyle`
     align-items: center;
     font-family: 'Poppins', sans-serif;
     color:#292929;
-    background: #EEEEFF;
+    background: #000000;
   }
-`
-;
+`;

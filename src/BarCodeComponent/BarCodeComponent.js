@@ -1,73 +1,98 @@
-import styled from "styled-components"
-import image from '../images/barcode.png'
-
-
+import styled from "styled-components";
+import image from "../images/barcode.png";
 
 const BarCodeComponent = () => {
- 
-    return(<DivBarcode>
-        <div className="divcard">
-
-           <div className="titulo">
-              <h2>Escaneá tu producto</h2>
-           </div>
-
-           <div className="imagen">
-              <img src={image} alt="imagw"/>
-           </div>
-
-         
+  return (
+    <DivBarcode>
+      <div className="divcard">
+        <div className="titulo">
+          <h2>Escaneá tu producto</h2>
         </div>
-    </DivBarcode>)
-}
+
+        <div className="imagen">
+          <img src={image} alt="imagw" />
+        </div>
+      </div>
+    </DivBarcode>
+  );
+};
 
 export const DivBarcode = styled.div`
+  height: 35rem;
+  width: 50rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 8px;
+  box-shadow: 8px 23px 24px -10px rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  background: #929e91;
 
-height: 35rem ;
-width: 50rem;
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction:column;
-border-radius: 8px;
-box-shadow: 8px 23px 24px -10px rgba(0,0,0,0.8);
-color: #ffffff;
-background: #929e91;
+  @media screen and (max-width: 1024px) {
+    /* Aquí puedes definir estilos específicos para tabletas */
+    /* Por ejemplo: */
 
+    width: 45rem;
+    height: 25rem;
+    margin: 0px;
+    padding: 0px;
+  }
 
-img{
-    width:43rem;
-   
-}
-
-.divcard{
+  .divcard {
     width: 100%;
     display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-height: 30rem;
-
-
-}
-.titulo{
-
-    background: #2b2e2b;;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 30rem;
+    @media screen and (max-width: 1024px) {
+      /* Aquí puedes definir estilos específicos para tabletas */
+      /* Por ejemplo: */
+    }
+  }
+  .titulo {
+    background: #2b2e2b;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     font-size: 2.57rem;
+    @media screen and (max-width: 1024px) {
+      /* Aquí puedes definir estilos específicos para tabletas */
+      /* Por ejemplo: */
 
-}
-.imagen{
+      margin: 0 auto;
+      font-size: 2rem;
 
-height: 17rem ;
-display: flex;
+      /* Otros estilos específicos para tabletas */
+    }
+  }
+  .imagen {
+    height: 17rem;
+    display: flex;
     justify-content: center;
     align-items: center;
-    
-}
-`
-export default BarCodeComponent
+    img {
+      width: 43rem;
+    }
+    @media screen and (max-width: 1024px) {
+      /* Aquí puedes definir estilos específicos para tabletas */
+      /* Por ejemplo: */
+
+      width: 100%;
+      margin: 0 auto;
+      height: 40%;
+
+      img {
+        padding: 0;
+        margin: 0;
+        width: 40rem;
+      }
+
+      /* Otros estilos específicos para tabletas */
+    }
+  }
+`;
+export default BarCodeComponent;
