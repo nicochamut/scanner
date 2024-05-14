@@ -11,6 +11,6 @@ export const GlobalStyles = createGlobalStyle`
     align-items: center;
     font-family: 'Poppins', sans-serif;
     color:#292929;
-    background: #000000;
+    background: #ffffff;
   }
 `;

@@ -1,15 +1,15 @@
 import styled from "styled-components";
-import image from "../images/barcode.png";
+import image from "../../images/barcode.png";
 
 const BarCodeComponent = () => {
   return (
     <DivBarcode>
       <div className="divcard">
         <div className="titulo">
-          <h2>Escaneá tu producto</h2>
+          <h2>Escaneá tu producto.</h2>
         </div>
 
-        <div className="imagen">
+        <div className="barcode">
           <img src={image} alt="imagw" />
         </div>
       </div>
@@ -69,13 +69,15 @@ export const DivBarcode = styled.div`
       /* Otros estilos específicos para tabletas */
     }
   }
-  .imagen {
+  .barcode {
     height: 17rem;
     display: flex;
     justify-content: center;
     align-items: center;
     img {
-      width: 43rem;
+      margin-top: 2rem;
+      width: 45rem;
+      height: 32rem;
     }
     @media screen and (max-width: 1024px) {
       /* Aquí puedes definir estilos específicos para tabletas */

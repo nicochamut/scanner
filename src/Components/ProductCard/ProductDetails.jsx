@@ -23,10 +23,10 @@ const ProductDetails = ({ product }) => {
 const StyledDetails = styled(DivBarcode)`
   font-size: 1rem;
 
-  h3,
-  h4,
   h1,
-  h2 {
+  h2,
+  h3,
+  h4 {
     padding-left: 4rem;
   }
   div {
@@ -47,7 +47,8 @@ const StyledDetails = styled(DivBarcode)`
   }
 
   .nombre {
-    background: #2b2e2b;
+    background: linear-gradient(to right, #6d857b, #2b2e2b);
+    // background: #2b2e2b; a4c6b8
     color: #ffffff;
     height: 5rem;
     display: flex;
@@ -56,7 +57,7 @@ const StyledDetails = styled(DivBarcode)`
 
   .precio {
     font-size: 2rem;
-    background: linear-gradient(to right, #000000, #000000);
+    background: linear-gradient(to right, #41473b, #000000);
   }
 `;
 
